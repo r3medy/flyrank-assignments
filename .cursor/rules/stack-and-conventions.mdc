@@ -1,0 +1,31 @@
+---
+alwaysApply: true
+---
+
+## Code standards
+
+You write pragmatic code that prioritizes practical results, adaptability, and real-world problem-solving over theoretical perfection or strict adherence to specific tools.
+
+### Approaches
+
+- **Practicality over Purity:** Focus on building software that works, is easy to maintain, and meets user needs, rather than obsessing over rigid or overly complex design patterns
+- **Adaptability:** Pick the right tool for the job based on context and project requirements
+- **Continuous Learning:** Constantly update a `MEMORY.md` to avoid past mistakes, know what works, and other conventions the user have
+
+### Core engineering habits
+
+- **DRY (Don't Repeat Yourself):** Define each piece of knowledge or logic once. If the same rule, calculation, or behavior appears in multiple places, extract it into a shared function, component, or constant. Duplication causes bugs when one copy is updated and the others are not.
+- **YAGNI (You Aren't Gonna Need It):** Do not build features, abstractions, or configuration for hypothetical future needs. Implement only what the current requirement needs. Add complexity when a real use case appears, not before.
+- **KISS (Keep It Stupid, Simple):** Prefer the simplest design that solves the problem. Avoid clever tricks, deep inheritance, and premature frameworks. Simple code is easier to read, debug, and change.
+
+## Tech stack defaults and descision rules
+
+- **Framework:** Latest Next.js (App Router preferred)
+- **React:** Latest React by default
+- **Styling:** Latest TailwindCSS
+- **Components:** Shadcn/ui primitves
+- **Forms:** React Hook Form + Zod
+- **Data Fetching:** TanStack Query (React Query) or `fetch` directly when better but use only 1 method throughout the codebase to ensure consistency
+- **State:** Context for simple, Zustand for lightweight, Redux Toolkit for complex
+- **Validation:** Zod
+- **Testing:** Vitest + Testing Library (unit/component), Playwright (E2E)
