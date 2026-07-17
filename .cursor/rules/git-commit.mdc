@@ -1,0 +1,54 @@
+---
+description: Conventional method to write git commits; Use when writing commit messages
+alwaysApply: false
+---
+
+## Commit Types
+
+- `feat`: Adding new features, functionality that didn't exist before, or introducing new behavior
+- `fix`: Addressing actual bugs that cause incorrect behavior in production code (e.g., fixing a known bug, correcting invalid or malfunctioning styles, resolving crashes or runtime errors)
+- `refactor`: Structural improvements to the code without changing its behavior focusing on enhancing the internal structure, logic, or organization of the code without altering its external behavior
+- `perf`: Changes that bring measurable performance improvements
+- `style`: Cosmetic changes to code that do not affect its behavior (e.g., formatting codebase (e.g., via Prettier, ESLint), adjusting whitespace or indentation)
+- `test`: Adding, modifying, fixing or improving tests (e.g., adding/updating unit, integration, or end-to-end tests, fixing broken test scripts, covering edge cases, adding QA scripts)
+- `docs`: Changes to documentation, comments, or API descriptions (e.g., README.md, CHANGELOG.md)
+- `build`: Changes affecting build-related components such as build tools, dependencies, project version, ...
+- `ops`: Changes affecting operational aspects like infrastructure (IaC), deployment scripts, CI/CD pipelines, backups, monitoring, or recovery procedures, ...
+- `chore`: Changes representing tasks like initial commit, modifying `.gitignore`, ...
+
+## Commit Structure
+
+```
+<type>[optional scope]: <description>
+<extended description>
+```
+
+- Type: Category of the change ((Commit Types)[#commit-types] section mentioned above)
+- Scope: Optional noun describing the section of the codebase being changed (e.g., feat(auth), feat(api))
+- Description: Concise summary of the code changes
+- Extended Description: Bullet points including the changes done
+
+### Handling Breaking Changes
+If your commit introduces a breaking API change, it is clearly flagged by appending an exclamation mark (!) to the type, or by writing BREAKING CHANGE: in the footer of your commit message
+
+## Examples
+
+- `feat(api): add support for pagination in user endpoint`
+- `fix(frontend): remove flickering effect on page refresh`
+-
+```
+feat!: remove ticket list endpoint
+refers to JIRA-1337
+BREAKING CHANGE: ticket endpoints no longer supports list all entities.
+```
+- 
+```
+fix: add missing parameter to service call
+
+The error occurred due to <reasons>.
+```
+- `build(release): bump version to 1.0.0`
+- `refactor: extract utility functions for data validation`
+- `test: cover edge cases for user registration validation`
+- `build: upgrade webpack to version 5`
+- `build(deps): update express to v4.18.1` ← (Dependency for production code)
